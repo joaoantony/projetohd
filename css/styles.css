@@ -13,7 +13,7 @@
 
 :root {
     --color-light: #f4f4f4;
-    --color-dark: #333333;
+    --color-dark: #111;
     --color-orange: #ff6600;
     --spacing-sm: 10px;
     --spacing-md: 20px;
@@ -27,6 +27,11 @@ html {
 
 ol, ul {
     list-style: none;
+}
+
+body {
+    background-color: var(--color-dark);
+    
 }
 
 a {
@@ -89,11 +94,27 @@ a:hover {
     text-wrap: balance;
 }
 
+.btn:hover .icon{
+    animation: motinha 2s infinite linear;
+}
+
+
+/* animação para moto ícone */
+@keyframes motinha {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+}
+
 .btn {
     border: 2px solid var(--color-orange);
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: 80px;
-    background-color: var(--color-orange)
+    background-color: var(--color-orange);
     transition: .5s;
 }
 
@@ -101,6 +122,46 @@ a:hover {
     background-color: transparent;
 
 }
+
+.galeria {
+    min-height: 100vh;
+    padding: var(--spacing-md);
+    color: var(--color-light);
+}
+
+.galeria h2{
+    font-size: 7vmin;
+    margin-bottom: var(--spacing-lg);
+}
+
+.grid-motos {
+    columns: 3 300px;
+}
+
+.grid-motos img {
+    width: 100%;
+    margin: var(--spacing-sm);
+    display: block;
+    border-radius: 8px;
+    animation: viewAnimation both;
+    animation-timeline: view(70% 20%);
+}
+
+@keyframes viewAnimation {
+
+    from{
+        opacity: 0;
+        transform: scale(.5);
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+
+
+}
+
+
 
 section {
     height: 100vh;
